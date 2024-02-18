@@ -15,7 +15,16 @@ public class ActorsDao {
             new Actor(6, "Actor 6", 6000, 8000)
     ));
 
-    public List<Actor> getAll() {
+    public List<Actor> findAll() {
         return actors;
+    }
+
+    public Actor findById(int id) {
+        for (Actor actor : actors) {
+            if (actor.getId() == id) {
+                return actor;
+            }
+        }
+        return null;
     }
 }

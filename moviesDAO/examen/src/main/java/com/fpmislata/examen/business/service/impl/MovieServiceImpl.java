@@ -28,4 +28,9 @@ public class MovieServiceImpl implements MovieService {
     public void delete(UUID id) {
         movieRepository.delete(id);
     }
+
+    @Override
+    public void create(Movie movie) {
+        movieRepository.create(movie);
+    }
 }

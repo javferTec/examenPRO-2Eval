@@ -13,8 +13,8 @@ public class Movie {
     private Director director;
     private List<Actor> actors;
 
-    public Movie(UUID id, String title, int year, String image, int runtime, String description, Director director, List<Actor> actors) {
-        this.id = id;
+    public Movie(String title, int year, String image, int runtime, String description, Director director, List<Actor> actors) {
+        this.id = UUID.randomUUID();
         this.title = title;
         this.year = year;
         this.image = image;
@@ -23,6 +23,8 @@ public class Movie {
         this.director = director;
         this.actors = actors;
     }
+
+    public Movie() {}
 
     public UUID getId() {
         return id;

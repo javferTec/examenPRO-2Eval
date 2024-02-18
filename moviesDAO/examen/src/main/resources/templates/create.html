@@ -8,28 +8,47 @@
 
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
-                <form th:action="@{/libros}" th:object="${book}" enctype="multipart/form-data" method="post">
+                <form th:action="@{/movies}" th:object="${movie}" enctype="multipart/form-data" method="post">
                     <fieldset>
                         <h1>Datos del libro</h1>
                         <div class="mb-3">
                             <label class="form-label">ID</label>
-                            <input type="number" class="form-control" placeholder="ID Autoincremental" disabled>
+                            <input type="text" class="form-control" placeholder="UUID" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="title" class="form-label">Titulo</label>
                             <input type="text" th:field="*{title}" class="form-control" id="title" placeholder="titulo" required>
                         </div>
                         <div class="mb-3">
-                            <label for="author" class="form-label">Autor</label>
-                            <input type="text" th:field="*{author}" class="form-control" id="author" placeholder="autor" required>
+                            <label for="year" class="form-label">Año</label>
+                            <input type="text" th:field="*{year}" class="form-control" id="year" placeholder="año" required>
                         </div>
                         <div class="mb-3">
-                            <label for="summary" class="form-label">Descripcion</label>
-                            <input type="text" th:field="*{summary}" class="form-control" id="summary" placeholder="descripcion" required>
+                            <label for="description" class="form-label">Descripcion</label>
+                            <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="descripcion" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="runtime" class="form-label">Runtime</label>
+                            <input type="number" th:field="*{runtime}" class="form-control" id="runtime" placeholder="runtime" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="director" class="form-label">Director</label>
+                            <select class="form-select form-control" th:field="*{director}" id="director" required>
+                                <option value="" selected="selected" disabled>Selecciona un director</option>
+                                <option th:each="director : ${directors}" th:value="${director.id}" th:text="${director.name}"></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="actors" class="form-label">Actor</label>
+                            <select class="form-select form-control multiple" th:field="*{actors}" id="actors" required multiple>
+                                <option value="" selected="selected" disabled>Selecciona varios actores</option>
+                                <option th:each="actor : ${actors}" th:value="${actor.id}" th:text="${actor.name}"></option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">Subir Imagen</label>
-                            <input type="file" class="form-control" id="image" name="image" required>
+                            <input type="text" class="form-control" id="image" name="image" required>
+                            <!--<input type="file" class="form-control" id="image" name="image" required>-->
                         </div>
                         <button type="submit" class="btn btn-primary">Subir</button>
                     </fieldset>

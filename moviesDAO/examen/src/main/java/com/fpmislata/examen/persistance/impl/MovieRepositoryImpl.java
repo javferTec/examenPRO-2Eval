@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class MovieRepositoryImpl implements MovieRepository {
     private MoviesDao moviesDao = new MoviesDao();
-    private List<Movie> movies = moviesDao.getAll();
+    private List<Movie> movies = moviesDao.findAll();
 
     @Override
     public List<Movie> findAll() {
@@ -29,5 +29,10 @@ public class MovieRepositoryImpl implements MovieRepository {
     @Override
     public void delete(UUID id) {
         movies.removeIf(movie -> movie.getId().equals(id));
+    }
+
+    @Override
+    public void create(Movie movie) {
+        movies.add(movie);
     }
 }

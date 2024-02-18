@@ -11,4 +11,6 @@ public interface MovieRepository {
     Movie findById(UUID id);
 
     void delete(UUID id);
+
+    void create(Movie movie);
 }

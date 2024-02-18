@@ -15,7 +15,16 @@ public class DirectorsDao {
             new Director(6, "Director 6", 6000, 9000)
     ));
 
-    public List<Director> getAll() {
+    public List<Director> findAll() {
         return directors;
+    }
+
+    public Director findById(int id) {
+        for (Director director :directors) {
+            if (director.getId() == id) {
+                return director;
+            }
+        }
+        return null;
     }
 }
