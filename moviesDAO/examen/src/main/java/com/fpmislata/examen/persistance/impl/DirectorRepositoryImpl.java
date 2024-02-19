@@ -12,4 +12,9 @@ public class DirectorRepositoryImpl implements DirectorRepository {
     public List<Director> findAll() {
         return directorDao.findAll();
     }
+
+    @Override
+    public Director findById(Integer directorId) {
+        return directorDao.findById(directorId);
+    }
 }

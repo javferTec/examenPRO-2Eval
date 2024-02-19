@@ -27,4 +27,15 @@ public class ActorsDao {
         }
         return null;
     }
+
+    public List<Actor> findByIds(List<Integer> actorIds) {
+        List<Actor> foundActors = new ArrayList<>();
+        for (Integer id : actorIds) {
+            Actor actor = findById(id);
+            if (actor != null) {
+                foundActors.add(actor);
+            }
+        }
+        return foundActors;
+    }
 }

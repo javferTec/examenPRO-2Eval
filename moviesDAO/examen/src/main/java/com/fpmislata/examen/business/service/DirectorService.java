@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface DirectorService {
     List<Director> findAll();
+
+    Director findById(Integer directorId);
 }

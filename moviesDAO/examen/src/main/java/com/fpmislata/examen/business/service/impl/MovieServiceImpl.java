@@ -1,9 +1,10 @@
 package com.fpmislata.examen.business.service.impl;
 
+import com.fpmislata.examen.business.entity.Actor;
+import com.fpmislata.examen.business.entity.Director;
 import com.fpmislata.examen.business.entity.Movie;
 import com.fpmislata.examen.business.service.MovieService;
 import com.fpmislata.examen.persistance.MovieRepository;
-import com.fpmislata.examen.persistance.impl.MovieRepositoryImpl;
 
 import java.util.List;
 import java.util.UUID;
@@ -30,7 +31,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public void create(Movie movie) {
-        movieRepository.create(movie);
+    public void create(String title, int year, String description, int runtime, Director director, List<Actor> actorList, String image) {
+        movieRepository.create(title, year, description, runtime, director, actorList, image);
     }
 }

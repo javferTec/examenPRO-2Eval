@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface DirectorRepository {
     List<Director> findAll();
+
+    Director findById(Integer directorId);
 }

@@ -12,4 +12,9 @@ public class ActorRepositoryImpl implements ActorRepository {
     public List<Actor> findAll() {
         return actors.findAll();
     }
+
+    @Override
+    public List<Actor> findByIds(List<Integer> actors) {
+        return this.actors.findByIds(actors);
+    }
 }

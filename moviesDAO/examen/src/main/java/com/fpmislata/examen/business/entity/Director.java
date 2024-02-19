@@ -13,6 +13,8 @@ public class Director {
         this.deathYear = deathYear;
     }
 
+    public Director() {}
+
     public int getId() {
         return id;
     }

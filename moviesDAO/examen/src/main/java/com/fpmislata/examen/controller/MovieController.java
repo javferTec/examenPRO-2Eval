@@ -6,7 +6,6 @@ import com.fpmislata.examen.business.entity.Movie;
 import com.fpmislata.examen.business.service.ActorService;
 import com.fpmislata.examen.business.service.DirectorService;
 import com.fpmislata.examen.business.service.MovieService;
-import com.fpmislata.examen.business.service.impl.MovieServiceImpl;
 import com.fpmislata.examen.common.MovieIoCContainer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,16 +29,16 @@ public class MovieController {
     // MOSTRAR TOD0
     @GetMapping("")
     public String findAll(Model model) {
-        List<Movie> movies = moviesService.findAll();
-        model.addAttribute("movies", movies);
+        //List<Movie> movies = moviesService.findAll();
+        model.addAttribute("movies", moviesService.findAll());
         return "listAll";
     }
 
     // MOSTRAR POR ID
     @GetMapping("/{id}")
     public String findById(@PathVariable("id") UUID id, Model model) {
-        Movie movie = moviesService.findById(id);
-        model.addAttribute("movie", movie);
+        //Movie movie = moviesService.findById(id);
+        model.addAttribute("movie", moviesService.findById(id));
         return "listById";
     }
 
@@ -47,17 +46,22 @@ public class MovieController {
     // CREAR
     @GetMapping("/add")
     public String showFormToCreate(Model model) {
-        List<Director> directors = directorService.findAll();
-        List<Actor> actors = actorService.findAll();
-        model.addAttribute("actors", actors);
-        model.addAttribute("directors", directors);
+        //List<Director> directors = directorService.findAll();
+        //List<Actor> actors = actorService.findAll();
+        model.addAttribute("actors", directorService.findAll());
+        model.addAttribute("directors", actorService.findAll());
         model.addAttribute("movie", new Movie());
         return "create";
     }
 
-    @PostMapping // VOY POR AQUÍ - NO VA -> pasar a requestParam
-    public String create(@ModelAttribute Movie movie) {
-        moviesService.create(movie);
+    @PostMapping
+    public String create(@ModelAttribute Movie movie, @RequestParam String title, @RequestParam int year,
+                         @RequestParam String description, @RequestParam int runtime, @RequestParam Integer directorId,
+                         @RequestParam List<Integer> actors, @RequestParam String image) {
+
+        Director director = directorService.findById(directorId);
+        List<Actor> actorList = actorService.findByIds(actors);
+        moviesService.create(title, year, description, runtime,director,actorList, image);
         return "redirect:/movies";
     }
 

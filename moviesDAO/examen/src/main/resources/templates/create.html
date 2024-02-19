@@ -17,32 +17,32 @@
                         </div>
                         <div class="mb-3">
                             <label for="title" class="form-label">Titulo</label>
-                            <input type="text" th:field="*{title}" class="form-control" id="title" placeholder="titulo" required>
+                            <input type="text" th:field="*{title}" name="title" class="form-control" id="title" placeholder="titulo" required>
                         </div>
                         <div class="mb-3">
                             <label for="year" class="form-label">Año</label>
-                            <input type="text" th:field="*{year}" class="form-control" id="year" placeholder="año" required>
+                            <input type="text" th:field="*{year}" name="year" class="form-control" id="year" placeholder="año" required>
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Descripcion</label>
-                            <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="descripcion" required>
+                            <input type="text" th:field="*{description}" name="description" class="form-control" id="description" placeholder="descripcion" required>
                         </div>
                         <div class="mb-3">
                             <label for="runtime" class="form-label">Runtime</label>
-                            <input type="number" th:field="*{runtime}" class="form-control" id="runtime" placeholder="runtime" required>
+                            <input type="number" th:field="*{runtime}" name="runtime" class="form-control" id="runtime" placeholder="runtime" required>
                         </div>
                         <div class="mb-3">
                             <label for="director" class="form-label">Director</label>
-                            <select class="form-select form-control" th:field="*{director}" id="director" required>
+                            <select class="form-select form-control" th:field="*{director.id}" id="director" required>
                                 <option value="" selected="selected" disabled>Selecciona un director</option>
                                 <option th:each="director : ${directors}" th:value="${director.id}" th:text="${director.name}"></option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="actors" class="form-label">Actor</label>
+                            <label for="actors" class="form-label">Actors</label>
                             <select class="form-select form-control multiple" th:field="*{actors}" id="actors" required multiple>
                                 <option value="" selected="selected" disabled>Selecciona varios actores</option>
-                                <option th:each="actor : ${actors}" th:value="${actor.id}" th:text="${actor.name}"></option>
+                                <option th:each="actor : ${actors}" th:value="${actor}" th:text="${actor.name}"></option>
                             </select>
                         </div>
                         <div class="mb-3">

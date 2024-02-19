@@ -1,5 +1,7 @@
 package com.fpmislata.examen.persistance.impl;
 
+import com.fpmislata.examen.business.entity.Actor;
+import com.fpmislata.examen.business.entity.Director;
 import com.fpmislata.examen.business.entity.Movie;
 import com.fpmislata.examen.persistance.MovieRepository;
 import com.fpmislata.examen.persistance.dao.MoviesDao;
@@ -31,8 +33,10 @@ public class MovieRepositoryImpl implements MovieRepository {
         movies.removeIf(movie -> movie.getId().equals(id));
     }
 
+
     @Override
-    public void create(Movie movie) {
-        movies.add(movie);
+    public void create(String title, int year, String description, int runtime, Director director, List<Actor> actorList, String image) {
+        Movie newMovie = new Movie(title, year, image, runtime, description, director, actorList);
+        movies.add(newMovie);
     }
 }

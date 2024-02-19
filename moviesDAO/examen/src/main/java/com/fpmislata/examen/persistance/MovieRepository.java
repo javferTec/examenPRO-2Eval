@@ -1,5 +1,7 @@
 package com.fpmislata.examen.persistance;
 
+import com.fpmislata.examen.business.entity.Actor;
+import com.fpmislata.examen.business.entity.Director;
 import com.fpmislata.examen.business.entity.Movie;
 
 import java.util.List;
@@ -12,5 +14,5 @@ public interface MovieRepository {
 
     void delete(UUID id);
 
-    void create(Movie movie);
+    void create(String title, int year, String description, int runtime, Director director, List<Actor> actorList, String image);
 }

@@ -13,6 +13,8 @@ public class Actor {
         this.deathYear = deathYear;
     }
 
+    public Actor() {}
+
     public int getId() {
         return id;
     }
