@@ -28,7 +28,7 @@ public class ActorsDao {
         return null;
     }
 
-    public List<Actor> findByIds(List<Integer> actorIds) {
+    public List<Actor> findByIds(Integer[] actorIds) {
         List<Actor> foundActors = new ArrayList<>();
         for (Integer id : actorIds) {
             Actor actor = findById(id);
