@@ -7,5 +7,5 @@ import java.util.List;
 public interface ActorService {
     List<Actor> findAll();
 
-    List<Actor> findByIds(List<Integer> actors);
+    List<Actor> findByIds(Integer[] actors);
 }

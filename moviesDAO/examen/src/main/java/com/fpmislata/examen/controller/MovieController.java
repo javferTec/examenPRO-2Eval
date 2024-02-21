@@ -57,7 +57,7 @@ public class MovieController {
     @PostMapping
     public String create(@ModelAttribute Movie movie, @RequestParam String title, @RequestParam int year,
                          @RequestParam String description, @RequestParam int runtime, @RequestParam Integer directorId,
-                         @RequestParam List<Integer> actors, @RequestParam String image) {
+                         @RequestParam Integer[] actors, @RequestParam String image) {
 
         Director director = directorService.findById(directorId);
         List<Actor> actorList = actorService.findByIds(actors);

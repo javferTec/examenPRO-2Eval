@@ -14,7 +14,7 @@ public class ActorRepositoryImpl implements ActorRepository {
     }
 
     @Override
-    public List<Actor> findByIds(List<Integer> actors) {
+    public List<Actor> findByIds(Integer[] actors) {
         return this.actors.findByIds(actors);
     }
 }

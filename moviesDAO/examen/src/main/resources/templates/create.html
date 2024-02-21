@@ -40,9 +40,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="actors" class="form-label">Actors</label>
-                            <select class="form-select form-control multiple" th:field="*{actors}" id="actors" required multiple>
+                            <select class="form-select form-control multiple" th:field="*{actorIds}" id="actors" required multiple>
                                 <option value="" selected="selected" disabled>Selecciona varios actores</option>
-                                <option th:each="actor : ${actors}" th:value="${actor}" th:text="${actor.name}"></option>
+                                <option th:each="actor : ${actors}" th:value="${actor.id}" th:text="${actor.name}"></option>
                             </select>
                         </div>
                         <div class="mb-3">
