@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Listado de los libros" />
+    <meta name="Autor" content="Javier Fernandez" />
+    <title>Libros</title>
+    <link rel="icon" type="image/x-icon" href="https://startbootstrap.github.io/startbootstrap-shop-item/assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://startbootstrap.github.io/startbootstrap-shop-item/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="/libros">Practica 1</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/libros">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/libros/crear">Crear</a></li>
+                </ul>
+                <button class="btn btn-outline-dark d-flex">
+                    <i class="bi-person-fill me-1"></i>
+                    Javier Fernández Díaz-Guerra
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5">
+    <div class="container col-10">
+        <div class="row">
+            <div class="d-flex align-items-center">
+                <h1 class="mr-6 mb-2">Listado de Libros</h1>
+                <img th:src="@{/images/icons/booksIcon.png}" style="width: 4.5rem;" />
+            </div>
+        </div>
+        <br>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody th:each="book : ${books}">
+                <tr>
+                    <td><span th:text="|${book.id}"></span></td>
+                    <td><span th:text="${book.title}"></span></td>
+                    <td><span th:text="${book.author.name}"></span></td>
+                    <td>
+                        <a class="btn btn-outline-primary rounded-pill btn-sm" th:href="@{${'/libros/' + book.id}}|">Detalles</a>
+                        <a class="btn btn-outline-danger rounded-pill btn-sm" th:href="@{${'/libros/eliminar/' + book.id}}|">Eliminar</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

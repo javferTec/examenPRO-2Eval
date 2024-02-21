@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap/css/bootstrap.min.css}">
+    <title th:text="${title}">Document</title>
+</head>
+<body>
+<nav th:fragment="menu" class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img th:src="@{${'/images/shop-icon.png'}}" alt="" height="60px">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav me-auto">
+                <a class="nav-link" href=".">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a class="nav-link" href="/categorias">Categorías</a>
+            </div>
+            <div class="navbar-nav" th:if="${session.isEmpty()}" >
+                <a class="nav-link" href="/registro">Registro</a>
+                <a class="nav-link" href="/login">Login</a>
+            </div>
+            <div class="navbar-nav" th:unless="${session.isEmpty()}">
+                <a class="nav-link" href="/carritos/activo">Carrito</a>
+                <a class="nav-link" th:href="@{${'/users/' + session.user_id + '/carritos'}} ">Pedidos</a>
+                <a class="nav-link" href="/logout">logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<footer th:fragment="footer" class="text-center mb-5 fixed-bottom">
+    &copy;2022 Todos los derechos reservados
+</footer>
+
+<script th:fragment="jquery" th:src="@{/js/jquery/jquery.min.js}"></script>
+<script th:fragment="popper" th:src="@{/js/popper/popper.min.js}"></script>
+<script th:fragment="bootstrap" th:src="@{/css/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
