@@ -11,6 +11,11 @@ public class Book {
         this.author = author;
     }
 
+    public Book(int id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
     public int getId() {
         return id;
     }
@@ -21,5 +26,9 @@ public class Book {
 
     public Author getAuthor() {
         return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 }

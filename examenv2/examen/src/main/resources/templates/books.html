@@ -43,7 +43,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Titulo</th>
-                    <th>Autor</th>
+                    <!--<th>Autor</th>-->
                     <th></th>
                 </tr>
                 </thead>
@@ -51,10 +51,9 @@
                 <tr>
                     <td><span th:text="|${book.id}"></span></td>
                     <td><span th:text="${book.title}"></span></td>
-                    <td><span th:text="${book.author.name}"></span></td>
+                    <!--<td><span th:text="${book.author.name}"></span></td>-->
                     <td>
                         <a class="btn btn-outline-primary rounded-pill btn-sm" th:href="@{${'/books/' + book.id}}|">Detalles</a>
-                        <br>
                         <a class="btn btn-outline-danger rounded-pill btn-sm" th:href="@{${'/books/eliminar/' + book.id}}|">Eliminar</a>
                     </td>
                 </tr>

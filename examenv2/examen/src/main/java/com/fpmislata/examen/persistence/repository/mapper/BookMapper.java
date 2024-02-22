@@ -12,11 +12,12 @@ import java.util.List;
 
 public class BookMapper {
     public static Book toBook(BookEntity bookEntity) {
-        AuthorDao authorDao = AuthorIoC.getAuthorDao();
-        AuthorEntity author = authorDao.findById(bookEntity.getAuthorId());
-        return new Book(bookEntity.getId(),
-                bookEntity.getTitle(),
-                new Author(author.getId(), author.getName())
+        //AuthorDao authorDao = AuthorIoC.getAuthorDao();
+        //AuthorEntity author = authorDao.findById(bookEntity.getAuthorId());
+        return new Book(
+                bookEntity.getId(),
+                bookEntity.getTitle()
+                //new Author(author.getId(), author.getName())
         );
     }
 
