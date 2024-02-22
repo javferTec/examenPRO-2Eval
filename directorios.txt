@@ -1,0 +1,39 @@
+common/
+      container/
+
+controller/
+
+domain/.file
+       entity/.file
+       service/.file
+              impl/.file
+
+persistance/.file
+           dao/.file
+               entity/.file
+               impl/.file
+           repository/.file
+                      impl/.file
+                      mapper/.file
+
+-------------------------------------------------------------------------------
+
+mkdir -p common/container
+mkdir -p controller
+mkdir -p domain/entity
+mkdir -p domain/service/impl
+mkdir -p persistence/dao/entity
+mkdir -p persistence/dao/impl
+mkdir -p persistence/repository/impl
+mkdir -p persistence/repository/mapper
+touch domain/.file
+touch domain/entity/.file
+touch domain/service/.file
+touch domain/service/impl/.file
+touch persistence/.file
+touch persistence/dao/.file
+touch persistence/dao/entity/.file
+touch persistence/dao/impl/.file
+touch persistence/repository/.file
+touch persistence/repository/impl/.file
+touch persistence/repository/mapper/.file
