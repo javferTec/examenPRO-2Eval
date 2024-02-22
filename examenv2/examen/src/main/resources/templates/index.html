@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Practica1JF</title>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{base/general :: head}">
 </head>
 <body>
-    <h1>Práctica de Javier Fernández - 1º DAW</h1>
-    <p>Index (no se muestra)</p>
+    <div th:replace="~{base/general :: navbar}"></div>
+
+    <div class="d-flex align-items-center justify-content-center vh-100 text-center content-container-nonparticle">
+        <div>
+            <h1 class="fw-bold text-primary">Bienvenido a la página inicial</h1>
+            <h2>
+                Este trabajo ha sido realizado por
+                <small class="text-body-secondary">
+                    <u>Javier Fernandez</u>
+                </small>
+            </h2>
+        </div>
+    </div>
+
+    <div id="particles-js"></div>
+
+    <script th:src="@{/js/particles.js}"></script>
 
 </body>
 </html>

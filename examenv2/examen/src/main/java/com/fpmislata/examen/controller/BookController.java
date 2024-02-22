@@ -20,12 +20,12 @@ public class BookController {
     @GetMapping
     public String findAll(Model model) {
         model.addAttribute("books", bookService.findAll());
-        return "books";
+        return "listAll";
     }
 
     @GetMapping("/{id}")
     public String findById(@PathVariable("id") int id, Model model) {
         model.addAttribute("book", bookService.findById(id));
-        return "bookDetails";
+        return "listById";
     }
 }

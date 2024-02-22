@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{base/general :: head}">
+</head>
+<body>
+
+    <div th:replace="~{base/general :: navbar}"></div>
+
+        <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6">
+                    <!--<img class="card-img-top mb-5 mb-md-0" th:src="@{/resources/} + ${movie.image}" alt="No se puede cargar la imagen" />-->
+                    <img class="card-img-top mb-5 mb-md-0" th:src="@{/images/defaultImage.png}" alt="No se puede cargar la imagen" />
+                </div>
+                <div class="col-md-6">
+                    <div class="small text-primary mb-1">ID: <span th:text="${book.id}"></span></div>
+                    <h1 class="display-5 fw-bolder"><span th:text="${book.title}"></span></h1>
+                    <div class="fs-5 mb-5">
+                        <span>Autor: <span th:text="${book.author.name}"></span></span>
+                        <br>
+                        <span>ID autor: <span th:text="${book.author.id}"></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
