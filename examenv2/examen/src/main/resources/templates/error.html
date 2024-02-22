@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Pagina de error" />
+  <meta name="Autor" content="Javier Fernandez" />
+  <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/error.css}" />
+</head>
+  <body>
+    <div class="bg-helper">
+      <div class="container">
+        <div class="imgerror">
+          <img th:src="@{/images/error.jpg}" alt=". . .">
+        </div>
+        <div class="caption">
+          <h1>Lo sentimos, no hemos podido encontrar la página.</h1>
+          <p>El recurso que solicitó no se encuentra disponible.</p>
+        </div>
+        <div class="btn-group">
+          <a class="btn-primary" href="/libros">Volver al inicio</a>
+        </div>
+        <div>
+          <large>
+            CÓDIGO DE ERROR: 404
+          </large>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
